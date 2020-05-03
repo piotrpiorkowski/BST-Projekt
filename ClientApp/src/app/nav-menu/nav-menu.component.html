@@ -1,9 +1,9 @@
-<header>
+<header >
   <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom mb-3"
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom mb-3" 
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">BST_Projekt</a>
+      <a class="navbar-brand" [routerLink]="['/']"><img src="assets/images/logo.jpg" width="83" height="52"></a>
       <button
         class="navbar-toggler order-first"
         type="button"
@@ -23,19 +23,20 @@
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Strona glowna</a>
+            <a class="nav-link text-dark" [routerLink]="['/']">STRONA GŁÓWNA</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Mobility</a>
+            <a class="nav-link text-dark" [routerLink]="['/counter']">MOBILITY</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Planer</a>
+            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">PLANER</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/about-us']">O Nas</a>
+            <a class="nav-link text-dark" [routerLink]="['/about-us']">O NAS</a>
           </li>
         </ul>
       </div>
-    </div>
+        
+      </div>
   </nav>
 </header>
