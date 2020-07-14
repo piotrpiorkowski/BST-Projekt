@@ -32,6 +32,8 @@ import { CarouselPauseComponent } from './carousel-pause/carousel-pause.componen
     FormsModule,
    
     RouterModule.forRoot([
+
+    
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
