@@ -48,3 +48,8 @@ header {
     background-image: url('../img/main-carousel-3-hq.jpg');
   }
 }*/
+
+.carousel-item a{
+    text-transform:uppercase;
+    
+}
