@@ -1,42 +1,44 @@
-<header >
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom ">
-    <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']"><img src="assets/images/logo.jpg" width="83" height="52"></a>
+ <header >
+   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom ">
+     <div class="container">
+       <a class="navbar-brand" [routerLink]="['/']"><img src="assets/images/logo.jpg" width="83" height="52"></a>
 
 
-      <button class="navbar-toggler order-first"
-              type="button"
-              data-toggle="collapse"
-              data-target="#mainmenu"
-              aria-label="Toggle navigation"
-              [attr.aria-expanded]="isExpanded"
-              (click)="toggle()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+       <button class="navbar-toggler order-first"
+               type="button"
+               data-toggle="collapse"
+               data-target="#mainmenu"
+               aria-label="Toggle navigation"
+               [attr.aria-expanded]="isExpanded"
+               (click)="toggle()">
+         <span class="navbar-toggler-icon"></span>
+       </button>
 
-      <div class="navbar-collapse collapse justify-content-sm-center d-sm-inline-flex flex-sm-row-reverse" id="mainmenu"
-           [ngClass]="{ show: isExpanded }">
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item"
-              [routerLinkActive]="['link-active']"
-              [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">STRONA GŁÓWNA</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">MOBILITY</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">PLANER</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/about-us']">O NAS</a>
-          </li>
-        </ul>
-      </div>
-      <div class="float-right">
-        <a [routerLink]="['/account']"><img src="assets/images/account.png" width="36" height="36"></a>
-      </div>
-      
-    </div>
-  </nav>
+       <div class="navbar-collapse collapse justify-content-sm-center d-sm-inline-flex flex-sm-row-reverse" id="mainmenu"
+            [ngClass]="{ show: isExpanded }">
+         <ul class="navbar-nav d-flex flex-grow">
+           <li class="nav-item"
+               [routerLinkActive]="['link-active']"
+               [routerLinkActiveOptions]="{ exact: true }">
+             <a class="nav-link text-dark" [routerLink]="['/']">STRONA GŁÓWNA</a>
+           </li>
+           <li class="nav-item" [routerLinkActive]="['link-active']">
+             <a class="nav-link text-dark" [routerLink]="['/counter']">MOBILITY</a>
+           </li>
+           <li class="nav-item" [routerLinkActive]="['link-active']">
+             <a class="nav-link text-dark" [routerLink]="['/fetch-data']">PLANER</a>
+           </li>
+           <li class="nav-item" [routerLinkActive]="['link-active']">
+             <a class="nav-link text-dark" [routerLink]="['/about-us']">O NAS</a>
+           </li>
+           <li class="ml-5">
+             <a [routerLink]="['/account']"><img src="assets/images/account.png" width="36" height="36"></a>
+           </li>
+         </ul>
+       </div>
+
+
+     </div>
+     
+   </nav>
 </header>
