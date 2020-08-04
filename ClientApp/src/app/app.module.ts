@@ -14,6 +14,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AccountComponent } from './account/account.component';
 import { CarouselPauseComponent } from './carousel-pause/carousel-pause.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CarouselPauseComponent } from './carousel-pause/carousel-pause.componen
     FetchDataComponent,
     AboutUsComponent,
     AccountComponent,
-    CarouselPauseComponent
+    CarouselPauseComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
