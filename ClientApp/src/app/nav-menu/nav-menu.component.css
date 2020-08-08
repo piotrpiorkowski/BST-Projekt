@@ -22,3 +22,13 @@ html {
 #mainmenu ul{
     
 }
+/*.navbar {
+  height:3.5rem;
+  padding-top:1rem;
+  padding-bottom:1rem;
+  font-family:'Roboto';
+  font-size:2rem;
+}*/
+.nav-link:hover{
+    font-weight:bold;
+}
