@@ -1,43 +1,46 @@
  <nav class="navbar h-1 navbar-expand-md navbar-toggleable-md navbar-light bg-light border-bottom py-1">
-     <div class="container">
-       <a class="navbar-brand" [routerLink]="['/']"><img src="assets/images/logo.jpg" width="83" height="52"></a>
+   <div class="container">
+     <a class="navbar-brand" [routerLink]="['/']"><img src="assets/images/logo.jpg" width="83" height="52"></a>
 
-  <button class="navbar-toggler order-first border-none"
-               type="button"
-               data-toggle="collapse"
-               data-target="#mainmenu"
-               aria-label="Toggle navigation"
-               [attr.aria-expanded]="isExpanded"
-               (click)="toggle()">
-         <span class="navbar-toggler-icon"></span>
-   </button>
-
-       <div class="navbar-collapse collapse justify-content-md-center d-md-inline-flex flex-md-row-reverse" id="mainmenu"
-            [ngClass]="{ show: isExpanded }">
-         <ul class="navbar-nav d-flex flex-grow">
-           <li class="mx-2 nav-item"
-               [routerLinkActive]="['link-active']"
-               [routerLinkActiveOptions]="{ exact: true }">
-             <a class="nav-link text-dark" [routerLink]="['/']">STRONA GŁÓWNA</a>
-           </li>
-           <li class="mx-2 nav-item" [routerLinkActive]="['link-active']">
-             <a class="nav-link text-dark" [routerLink]="['/counter']">MOBILITY</a>
-           </li>
-           <li class="mx-2 nav-item" [routerLinkActive]="['link-active']">
-             <a class="nav-link text-dark" [routerLink]="['/fetch-data']">PLANER</a>
-           </li>
-          
-           <li class="mx-2 nav-item">
-             <a class="nav-link text-dark" href="#list-item-1">O NAS</a>
-           </li>
-         
-         </ul>
-       </div>
-
-       <div class="account">
-           <a [routerLink]="['/account']"><i class="far fa-user py-2" style="font-size:2rem;"></i></a>
-         </div>
-
+     <div class="account  d-block d-md-none">
+       <a [routerLink]="['/account']"><i class="far fa-user py-2 d-block d-md-none" style="font-size:2rem;"></i></a>
      </div>
+     <button class="navbar-toggler order-first border-none"
+             type="button"
+             data-toggle="collapse"
+             data-target="#mainmenu"
+             aria-label="Toggle navigation"
+             [attr.aria-expanded]="isExpanded"
+             (click)="toggle()">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+
+     <div class="navbar-collapse collapse justify-content-md-center d-md-inline-flex flex-md-row-reverse" id="mainmenu"
+          [ngClass]="{ show: isExpanded }">
+       <ul class="navbar-nav d-flex flex-grow">
+         <li class="mx-2 nav-item"
+             [routerLinkActive]="['link-active']"
+             [routerLinkActiveOptions]="{ exact: true }">
+           <a class="nav-link text-dark" [routerLink]="['/']">STRONA GŁÓWNA</a>
+         </li>
+         <li class="mx-2 nav-item" [routerLinkActive]="['link-active']">
+           <a class="nav-link text-dark" [routerLink]="['/counter']">MOBILITY</a>
+         </li>
+         <li class="mx-2 nav-item" [routerLinkActive]="['link-active']">
+           <a class="nav-link text-dark" [routerLink]="['/fetch-data']">PLANER</a>
+         </li>
+
+         <li class="mx-2 nav-item">
+           <a class="nav-link text-dark" href="#list-item-1">O NAS</a>
+         </li>
+
+       </ul>
+     </div>
+
+     <div class="account d-none d-md-block">
+       <a [routerLink]="['/account']"><i class="far fa-user py-2 d-none d-md-block" style="font-size:2rem;"></i></a>
+     </div>
+    
+   </div>
       </nav>
 
