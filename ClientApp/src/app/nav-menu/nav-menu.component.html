@@ -1,10 +1,8 @@
- <header >
-   <nav class="navbar h-1 navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom">
+ <nav class="navbar h-1 navbar-expand-md navbar-toggleable-md navbar-light bg-light border-bottom py-1">
      <div class="container">
        <a class="navbar-brand" [routerLink]="['/']"><img src="assets/images/logo.jpg" width="83" height="52"></a>
 
-
-       <button class="navbar-toggler order-first border-none"
+  <button class="navbar-toggler order-first border-none"
                type="button"
                data-toggle="collapse"
                data-target="#mainmenu"
@@ -12,36 +10,34 @@
                [attr.aria-expanded]="isExpanded"
                (click)="toggle()">
          <span class="navbar-toggler-icon"></span>
-       </button>
+   </button>
 
-       <div class="navbar-collapse collapse justify-content-sm-center d-sm-inline-flex flex-sm-row-reverse" id="mainmenu"
+       <div class="navbar-collapse collapse justify-content-md-center d-md-inline-flex flex-md-row-reverse" id="mainmenu"
             [ngClass]="{ show: isExpanded }">
          <ul class="navbar-nav d-flex flex-grow">
-           <li class="nav-item"
+           <li class="mx-2 nav-item"
                [routerLinkActive]="['link-active']"
                [routerLinkActiveOptions]="{ exact: true }">
              <a class="nav-link text-dark" [routerLink]="['/']">STRONA GŁÓWNA</a>
            </li>
-           <li class="nav-item" [routerLinkActive]="['link-active']">
+           <li class="mx-2 nav-item" [routerLinkActive]="['link-active']">
              <a class="nav-link text-dark" [routerLink]="['/counter']">MOBILITY</a>
            </li>
-           <li class="nav-item" [routerLinkActive]="['link-active']">
+           <li class="mx-2 nav-item" [routerLinkActive]="['link-active']">
              <a class="nav-link text-dark" [routerLink]="['/fetch-data']">PLANER</a>
            </li>
-           <!--<li class="nav-item" [routerLinkActive]="['link-active']">
-             <a class="nav-link text-dark" [routerLink]="['/about-us']">O NAS</a>
-           </li>-->
-           <li class="nav-item">
+          
+           <li class="mx-2 nav-item">
              <a class="nav-link text-dark" href="#list-item-1">O NAS</a>
            </li>
-           <li class="ml-5">
-             <a [routerLink]="['/account']"><i class="far fa-user" style="font-size:2rem;"></i></a>
-           </li>
+         
          </ul>
        </div>
 
+       <div class="account">
+           <a [routerLink]="['/account']"><i class="far fa-user py-2" style="font-size:2rem;"></i></a>
+         </div>
 
      </div>
-     
-   </nav>
-</header>
+      </nav>
+
