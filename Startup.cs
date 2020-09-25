@@ -1,4 +1,5 @@
 using BST_Projekt.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace BST_Projekt
 {
@@ -28,8 +31,20 @@ namespace BST_Projekt
             services.AddControllersWithViews();
             services.AddCors();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+               .AddJwtBearer(options =>
+               {
+                   options.TokenValidationParameters = new TokenValidationParameters
+                   {
+                       ValidateIssuerSigningKey = true,
+                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
+                       .GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+                       ValidateIssuer = false,
+                       ValidateAudience = false
+                   };
+               });
 
-           
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -61,9 +76,12 @@ namespace BST_Projekt
 
             app.UseRouting();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseAuthentication();
+            app.UseAuthorization();
 
 
-            
+
+
 
             app.UseEndpoints(endpoints =>
             {
