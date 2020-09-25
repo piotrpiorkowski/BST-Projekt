@@ -25,11 +25,11 @@ namespace BST_Projekt
 
             services.AddDbContext<DataContext>(x => x.UseSqlite
             (Configuration.GetConnectionString("DefaultConnection")));
-            
-
-
             services.AddControllersWithViews();
             services.AddCors();
+            services.AddScoped<IAuthRepository, AuthRepository>();
+
+           
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

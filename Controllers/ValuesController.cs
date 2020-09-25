@@ -6,7 +6,7 @@ using BST_Projekt.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace DatingApp.API.Controllers
+namespace BST_Projekt.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
