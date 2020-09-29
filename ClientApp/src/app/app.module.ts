@@ -15,6 +15,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { AccountComponent } from './account/account.component';
 import { CarouselPauseComponent } from './carousel-pause/carousel-pause.component';
 import { FooterComponent } from './footer/footer.component';
+import { AuthService } from './_services/auth.service';
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { FooterComponent } from './footer/footer.component';
       { path: 'account', component: AccountComponent },
     ])
   ],
-  providers: [],
+  providers: [
+    ErrorInterceptorProvider,
+  AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
