@@ -37,3 +37,7 @@ html {
     font-weight: bold;
   color: #0b68cb !important;
 }
+
+.dropdown-toggle, .dropdown-item {
+    cursor: pointer;
+}

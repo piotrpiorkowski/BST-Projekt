@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
-  
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -17,6 +18,9 @@ import { CarouselPauseComponent } from './carousel-pause/carousel-pause.componen
 import { FooterComponent } from './footer/footer.component';
 import { AuthService } from './_services/auth.service';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { appRoutes } from './routes';
+
+
 
 @NgModule({
   declarations: [
@@ -34,16 +38,11 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-   
-    RouterModule.forRoot([
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
 
-    
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'about-us', component: AboutUsComponent },
-      { path: 'account', component: AccountComponent },
-    ])
+    RouterModule.forRoot(appRoutes)
+
   ],
   providers: [
     ErrorInterceptorProvider,
