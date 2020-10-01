@@ -15,6 +15,7 @@
     <UserSecretsId>ae5fc0e9-4b54-4d8a-81c2-e987950a74ad</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Google.Protobuf" Version="3.13.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />

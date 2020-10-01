@@ -14,7 +14,7 @@ namespace BST_Projekt.Dtos
         public string Introduction { get; set; }
         public string City { get; set; }
         public string PhotoUrl { get; set; }
-        public ICollection<Photo> Photos { get; set; }
+        public ICollection<PhotosForDetailedDto> Photos { get; set; }
 
     }
 }

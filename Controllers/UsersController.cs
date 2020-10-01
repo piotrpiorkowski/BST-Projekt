@@ -1,4 +1,5 @@
-﻿using BST_Projekt.Data;
+﻿using AutoMapper;
+using BST_Projekt.Data;
 using BST_Projekt.Dtos;
 using BST_Projekt.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -20,16 +22,19 @@ namespace BST_Projekt.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IBstRepository _repo;
+        private readonly IMapper _mapper;
 
-        public UsersController(IBstRepository repo)
+        public UsersController(IBstRepository repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
             var users = await _repo.GetUsers();
+            var usersToReturn = _mapper.Map<IEnumerable<UserForPlanerDto>>(users);
             return Ok(users);
         }
 
@@ -37,7 +42,8 @@ namespace BST_Projekt.Controllers
         public async Task<IActionResult> GetUser(int id)
         {
             var user = await _repo.GetUser(id);
-            return Ok(user);
+            var userToReturn = _mapper.Map<UserForDetailedDto>(user);
+            return Ok(userToReturn);
         }
     }
 

@@ -1,3 +1,4 @@
+using AutoMapper;
 using BST_Projekt.Data;
 using BST_Projekt.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -39,6 +40,7 @@ namespace BST_Projekt
                 
                 
             services.AddCors();
+            services.AddAutoMapper(typeof(BstRepository).Assembly);
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IBstRepository, BstRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
