@@ -8,14 +8,14 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { AccountComponent } from './account/account.component';
-import { CarouselPauseComponent } from './carousel-pause/carousel-pause.component';
-import { FooterComponent } from './footer/footer.component';
+import { NavMenuComponent } from './_components/nav-menu/nav-menu.component';
+import { HomeComponent } from './_components/home/home.component';
+import { MobilityComponent } from './_components/mobility/mobility.component';
+import { PlanerComponent } from './_components/planer/planer.component';
+import { AboutUsComponent } from './_components/about-us/about-us.component';
+import { AccountComponent } from './_components/account/account.component';
+import { CarouselPauseComponent } from './_components/carousel-pause/carousel-pause.component';
+import { FooterComponent } from './_components/footer/footer.component';
 import { AuthService } from './_services/auth.service';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { appRoutes } from './routes';
@@ -27,8 +27,8 @@ import { appRoutes } from './routes';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
+    MobilityComponent,
+    PlanerComponent,
     AboutUsComponent,
     AccountComponent,
     CarouselPauseComponent,
