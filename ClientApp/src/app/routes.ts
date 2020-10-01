@@ -2,7 +2,9 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './_components/home/home.component';
 import { MobilityComponent } from './_components/mobility/mobility.component';
 import { PlanerComponent } from './_components/planer/planer.component';
-import { A./_components/about-us/about-us.componentut-us/about-us.component';./_components/account/account.component } from './account/account.component';
+import { AboutUsComponent } from './_components/about-us/about-us.component';
+import { AccountComponent } from './_components/account/account.component';
+
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },

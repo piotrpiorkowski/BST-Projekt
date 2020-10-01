@@ -26,7 +26,7 @@ export class NavMenuComponent implements OnInit {
     }, error => {
       this.alertify.error(error);
     }, () => {
-        this.router.navigate(['/fetch-data']);
+        this.router.navigate(['/planer']);
     });
     
   }
