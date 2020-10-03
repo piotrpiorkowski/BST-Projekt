@@ -78,7 +78,7 @@
       "City": "Macdona",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/male/35.jpg",
+          "url": "https://randomuser.me/api/portraits/men/35.jpg",
           "isMain": true,
           "description": "Pariatur est laborum ut magna amet aute elit cupidatat reprehenderit est ad consequat enim."
         }
@@ -92,7 +92,7 @@
       "City": "Carlton",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/male/28.jpg",
+          "url": "https://randomuser.me/api/portraits/men/28.jpg",
           "isMain": true,
           "description": "Proident deserunt enim commodo aute non sit."
         }
@@ -106,7 +106,7 @@
       "City": "Topanga",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/male/34.jpg",
+          "url": "https://randomuser.me/api/portraits/men/34.jpg",
           "isMain": true,
           "description": "Commodo irure excepteur labore enim fugiat officia nostrud velit cupidatat qui ullamco."
         }
@@ -120,7 +120,7 @@
       "City": "Camino",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/male/18.jpg",
+          "url": "https://randomuser.me/api/portraits/men/18.jpg",
           "isMain": true,
           "description": "Officia consectetur enim pariatur voluptate sint aute irure cillum deserunt ex quis."
         }
@@ -134,7 +134,7 @@
       "City": "Sugartown",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/male/69.jpg",
+          "url": "https://randomuser.me/api/portraits/men/69.jpg",
           "isMain": true,
           "description": "Nostrud consectetur do qui adipisicing consequat mollit ad eiusmod sint."
         }
@@ -148,7 +148,7 @@
       "City": "Heil",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/male/76.jpg",
+          "url": "https://randomuser.me/api/portraits/men/76.jpg",
           "isMain": true,
           "description": "Exercitation cupidatat sint Lorem ex nulla id qui excepteur elit ex amet ullamco."
         }
@@ -162,7 +162,7 @@
       "City": "Jacksonburg",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/male/63.jpg",
+          "url": "https://randomuser.me/api/portraits/men/63.jpg",
           "isMain": true,
           "description": "Minim irure consequat est Lorem in minim aute velit."
         }
@@ -176,7 +176,7 @@
       "City": "Beaulieu",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/male/57.jpg",
+          "url": "https://randomuser.me/api/portraits/men/57.jpg",
           "isMain": true,
           "description": "Ullamco magna do Lorem sint quis veniam."
         }
@@ -190,7 +190,7 @@
       "City": "Sunbury",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/male/13.jpg",
+          "url": "https://randomuser.me/api/portraits/men/13.jpg",
           "isMain": true,
           "description": "Sunt deserunt ut proident cillum in enim do est duis nisi mollit tempor irure commodo."
         }
@@ -204,7 +204,7 @@
       "City": "Northridge",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/male/3.jpg",
+          "url": "https://randomuser.me/api/portraits/men/3.jpg",
           "isMain": true,
           "description": "Ex nostrud cillum et officia dolor elit magna."
         }

@@ -35,7 +35,7 @@ namespace BST_Projekt.Controllers
         {
             var users = await _repo.GetUsers();
             var usersToReturn = _mapper.Map<IEnumerable<UserForPlanerDto>>(users);
-            return Ok(users);
+            return Ok(usersToReturn);
         }
 
         [HttpGet("{id}")]

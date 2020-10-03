@@ -19,6 +19,8 @@ import { FooterComponent } from './_components/footer/footer.component';
 import { AuthService } from './_services/auth.service';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { appRoutes } from './routes';
+import { MemberListComponent } from './_components/member-list/member-list.component';
+import { MemberCardComponent } from './_components/member-card/member-card.component';
 
 
 
@@ -32,7 +34,9 @@ import { appRoutes } from './routes';
     AboutUsComponent,
     AccountComponent,
     CarouselPauseComponent,
-    FooterComponent
+    FooterComponent,
+    MemberListComponent,
+    MemberCardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

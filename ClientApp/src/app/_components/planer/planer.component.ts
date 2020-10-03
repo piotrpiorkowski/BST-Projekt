@@ -15,9 +15,6 @@ export class PlanerComponent implements OnInit {
   }
 
   ngOnInit() {
-    const user: User = {
-      ...<User>{}, username: "xD name xD" };
-    this.users = [user]
     this.loadUsers();
   }
 
