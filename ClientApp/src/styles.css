@@ -15,3 +15,30 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+
+.tab-panel {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+
+
+
+.member-tabset > .tab-content {
+  border: 0;
+  border-top: 1px solid #eee;
+  padding: 15px 0;
+}
+
+
+  
+
+
+
+
+
+   
+
+
