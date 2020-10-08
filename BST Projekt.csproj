@@ -49,6 +49,7 @@
     <None Remove="ClientApp\src\app\_models\user.ts" />
     <None Remove="ClientApp\src\app\_resolvers\member - kopiować.detail.resolver.ts" />
     <None Remove="ClientApp\src\app\_resolvers\member.detail.resolver.ts" />
+    <None Remove="ClientApp\src\app\_resolvers\member.edit.resolver.ts" />
     <None Remove="ClientApp\src\app\_resolvers\member.list.resolver.ts" />
     <None Remove="ClientApp\src\app\_resolvers\member.list.ts" />
     <None Remove="ClientApp\src\app\_services\error.interceptor.ts" />
@@ -66,6 +67,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\_models\photo.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_models\user.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_resolvers\member.detail.resolver.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_resolvers\member.edit.resolver.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_resolvers\member.list.resolver.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_services\error.interceptor.ts" />
     <TypeScriptCompile Include="ClientApp\src\typings.d.ts" />
