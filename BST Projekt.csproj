@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="ClientApp\src\app\routes.ts" />
+    <None Remove="ClientApp\src\app\_guards\prevent-unsaved-changes-guard.ts" />
     <None Remove="ClientApp\src\app\_models\photo.ts" />
     <None Remove="ClientApp\src\app\_models\user.ts" />
     <None Remove="ClientApp\src\app\_resolvers\member - kopiować.detail.resolver.ts" />
@@ -64,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\routes.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_guards\prevent-unsaved-changes-guard.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_models\photo.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_models\user.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_resolvers\member.detail.resolver.ts" />

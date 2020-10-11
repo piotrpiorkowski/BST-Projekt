@@ -19,6 +19,7 @@ namespace BST_Projekt.Helpers
                  .ForMember(dest => dest.PhotoUrl, opt =>
                 opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url)); ;
         CreateMap<PhotoForDetailedDto, PhotosForDetailedDto>();
+            CreateMap<UserForUpdateDto, User>();
     }
     }
 }
