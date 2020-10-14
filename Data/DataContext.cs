@@ -1,4 +1,6 @@
-﻿using BST_Projekt.Models;
+﻿using BST_Projekt.Data;
+using BST_Projekt.Dtos;
+using BST_Projekt.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ namespace BST_Projekt.Data
        
         public DbSet<Value> Values { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<PhotoForDetailedDto> Photos { get; set; }
+        public DbSet<Photo> Photos { get; set; }
 
     }
 }

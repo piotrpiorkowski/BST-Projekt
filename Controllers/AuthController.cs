@@ -1,6 +1,6 @@
 ﻿using BST_Projekt.Data;
 using BST_Projekt.Dtos;
-using BST_Projekt.Models;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -10,6 +10,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using BST_Projekt.Models;
 
 namespace BST_Projekt.Controllers
 {

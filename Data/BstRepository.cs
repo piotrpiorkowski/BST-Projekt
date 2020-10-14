@@ -1,4 +1,5 @@
-﻿using BST_Projekt.Models;
+﻿using BST_Projekt.Data;
+using BST_Projekt.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,12 @@ namespace BST_Projekt.Data
             _context.Remove(entity);
         }
 
+        public async Task<Photo> GetPhoto(int id)
+        {
+            var photo = await _context.Photos.FirstOrDefaultAsync(p => p.Id == id);
+
+            return photo;
+        }
 
         public async Task<User> GetUser(int id)
         {

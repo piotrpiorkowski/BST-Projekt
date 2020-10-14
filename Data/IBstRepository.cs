@@ -1,7 +1,8 @@
-﻿using BST_Projekt.Models;
-using System;
+﻿
+using BST_Projekt.Models;
+
 using System.Collections.Generic;
-using System.Linq;
+
 using System.Threading.Tasks;
 
 namespace BST_Projekt.Data
@@ -13,6 +14,7 @@ namespace BST_Projekt.Data
         Task<bool> SaveAll();
         Task<IEnumerable<User>> GetUsers();
         Task<User> GetUser(int id);
+        Task<Photo> GetPhoto(int id);
             
     }
 }

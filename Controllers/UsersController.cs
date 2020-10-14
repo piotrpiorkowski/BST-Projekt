@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BST_Projekt.Data;
 using BST_Projekt.Dtos;
-using BST_Projekt.Models;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

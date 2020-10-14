@@ -1,7 +1,7 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace BST_Projekt.Models
 {
@@ -14,7 +14,7 @@ namespace BST_Projekt.Models
         public DateTime LastActive { get; set; }
         public string Introduction { get; set; }
         public string City { get; set; }
-        public ICollection<PhotoForDetailedDto> Photos { get; set; }
+        public virtual ICollection<Photo> Photos { get; set; }
 
 
     }

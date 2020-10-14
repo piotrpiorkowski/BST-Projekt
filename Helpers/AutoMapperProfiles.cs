@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using BST_Projekt.Dtos;
-using BST_Projekt.Models;
+using BST_Projekt.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BST_Projekt.Models;
 
 namespace BST_Projekt.Helpers
 {
@@ -18,8 +19,11 @@ namespace BST_Projekt.Helpers
         CreateMap<User, UserForDetailedDto>()
                  .ForMember(dest => dest.PhotoUrl, opt =>
                 opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url)); ;
-        CreateMap<PhotoForDetailedDto, PhotosForDetailedDto>();
+        CreateMap<Photo, PhotosForDetailedDto>();
             CreateMap<UserForUpdateDto, User>();
+            CreateMap<Photo, PhotoForReturnDto>();
+            CreateMap<PhotoForCreationDto, Photo>();
+
     }
     }
 }

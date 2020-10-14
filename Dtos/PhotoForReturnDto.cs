@@ -1,9 +1,11 @@
-﻿
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BST_Projekt.Models
+namespace BST_Projekt.Dtos
 {
-    public class Photo
+    public class PhotoForReturnDto
     {
         public int Id { get; set; }
         public string Url { get; set; }
@@ -11,7 +13,5 @@ namespace BST_Projekt.Models
         public DateTime DateAdded { get; set; }
         public bool IsMain { get; set; }
         public string PublicId { get; set; }
-        public User User { get; set; }
-        public int UserId { get; set; }
     }
 }
