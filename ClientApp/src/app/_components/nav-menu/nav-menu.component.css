@@ -20,18 +20,6 @@ html {
  
 }
 
-#mainmenu ul{
-    
-}
-/*.navbar {
-  height:3.5rem;
-  padding-top:1rem;
-  padding-bottom:1rem;
-  font-family:'Roboto';
-  font-size:2rem;
-}*/
-
-
 .navbar .navbar-nav .nav-item.active .nav-link,
 .navbar .navbar-nav .nav-item:hover .nav-link {
     font-weight: bold;
@@ -40,4 +28,10 @@ html {
 
 .dropdown-toggle, .dropdown-item {
     cursor: pointer;
+}
+
+.profile-photo {
+    max-height: 50px;
+    border: 2px solid black;
+    display: inline;
 }
