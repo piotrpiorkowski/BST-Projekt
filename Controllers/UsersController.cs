@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BST_Projekt.Data;
 using BST_Projekt.Dtos;
-
+using BST_Projekt.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace BST_Projekt.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
