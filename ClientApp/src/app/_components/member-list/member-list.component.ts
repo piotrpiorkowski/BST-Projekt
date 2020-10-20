@@ -3,14 +3,21 @@ import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
 import { AlertifyService } from '../../_services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
+import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
+import { Pagination, PaginatedResult } from '../../_models/pagination';
+
 
 
 @Component({
   selector: 'app-member-list',
-  templateUrl: './member-list.component.html'
+  templateUrl: './member-list.component.html',
+   providers: [{
+    provide: PaginationConfig
+  }]
 })
 export class MemberListComponent implements OnInit {
   users: User[];
+
 
   constructor(private userService: UserService, private alertify: AlertifyService,
     private route: ActivatedRoute) { }
@@ -18,9 +25,7 @@ export class MemberListComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.users = data['users'].result;
+      this.users = data['users'].result;     
     });
   }
-
-
 }
