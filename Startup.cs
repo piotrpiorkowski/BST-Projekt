@@ -55,6 +55,7 @@ namespace BST_Projekt
                    };
                });
             services.AddScoped<LogUserActivity>();
+            
 
 
             // In production, the Angular files will be served from this directory
