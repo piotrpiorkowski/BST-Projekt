@@ -36,6 +36,8 @@ import { MemberEditComponent } from './_components/member-edit/member-edit.compo
 import { MemberEditResolver } from './_resolvers/member.edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes-guard';
 import { PhotoEditorComponent } from './_components/photo-editor/photo-editor.component';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MessagesComponent } from './_components/messages/messages.component';
 
 
 
@@ -59,7 +61,8 @@ export function tokenGetter() {
     MemberCardComponent,
     MemberDetailComponent,
     MemberEditComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -91,6 +94,7 @@ export function tokenGetter() {
     MemberDetailResolver,
     MemberListResolver,
     MemberEditResolver,
+    MessagesResolver,
     AuthService,
     PreventUnsavedChanges
   ],
