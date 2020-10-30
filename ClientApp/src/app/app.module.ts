@@ -8,7 +8,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TimeagoModule } from 'ngx-timeago';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { NgxPaginationModule } from 'ngx-pagination';
+
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
@@ -74,7 +74,7 @@ export function tokenGetter() {
     TabsModule.forRoot(),
     TimeagoModule.forRoot(),
     PaginationModule.forRoot(),
-    NgxPaginationModule,
+   
     RouterModule.forRoot(appRoutes),
     NgxGalleryModule,
     FileUploadModule,
