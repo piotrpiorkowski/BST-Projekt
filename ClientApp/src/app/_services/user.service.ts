@@ -14,16 +14,10 @@ import { Message } from '../_models/message';
 })
 export class UserService {
   baseUrl = environment.apiUrl;
-
   constructor(private http: HttpClient) { }
 
-  getUsers(
-    page?,
-    itemsPerPage?,
-  ): Observable<PaginatedResult<User[]>> {
-    const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<
-      User[]
-    >();
+  getUsers(page?, itemsPerPage?): Observable<PaginatedResult<User[]>> {
+    const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
 
     let params = new HttpParams();
 
@@ -31,19 +25,16 @@ export class UserService {
       params = params.append('pageNumber', page);
       params = params.append('pageSize', itemsPerPage);
     }
-    return this.http
-      .get<User[]>(this.baseUrl + 'users', { observe: 'response', params })
+    return this.http.get<User[]>(this.baseUrl + 'users', { observe: 'response', params })
       .pipe(
         map(response => {
           paginatedResult.result = response.body;
           if (response.headers.get('Pagination') != null) {
-            paginatedResult.pagination = JSON.parse(
-              response.headers.get('Pagination')
-            );
+            paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
           }
           return paginatedResult;
         })
-      );
+      )
   }
 
   getUser(id): Observable<User> {

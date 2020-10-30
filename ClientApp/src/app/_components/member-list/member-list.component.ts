@@ -17,7 +17,8 @@ import { Pagination, PaginatedResult } from '../../_models/pagination';
 })
 export class MemberListComponent implements OnInit {
   users: User[];
-    
+  p: number = 1;
+  collection: any[] = this.users;  
   
 
 
