@@ -5,15 +5,11 @@ import { Pagination, PaginatedResult } from '../../_models/pagination';
 import { UserService } from '../../_services/user.service';
 import { AuthService } from '../../_services/auth.service';
 import { AlertifyService } from '../../_services/alertify.service';
-import { PaginationConfig } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css'],
-  providers: [{
-    provide: PaginationConfig
-  }]
+  styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
   messages: Message[];
