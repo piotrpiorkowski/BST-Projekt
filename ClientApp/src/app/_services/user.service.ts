@@ -53,23 +53,20 @@ export class UserService {
     return this.http.delete(this.baseUrl + 'users/' + userId + '/photos/' + id);
   }
 
-  getMessages(id: number, page?, itemsPerPage?, messageContainer?) {
+  getMessages(id: number, /*page?, itemsPerPage?,*/ messageContainer?) {
     const paginatedResult: PaginatedResult<Message[]> = new PaginatedResult<Message[]>();
-
     let params = new HttpParams();
 
     params = params.append('MessageContainer', messageContainer);
-
-    if (page != null && itemsPerPage != null) {
-      params = params.append('pageNumber', page);
-      params = params.append('pageSize', itemsPerPage);
-    }
+    
+    //if (page != null && itemsPerPage != null) {
+    //  params = params.append('pageNumber', page);
+    //  params = params.append('pageSize', itemsPerPage);
+    //}
 
     return this.http
-      .get<Message[]>(this.baseUrl + 'users/' + id + '/messages', {
-        observe: 'response',
-        params
-      })
+      .get<Message[]>(this.baseUrl + 'users/' + id + '/messages',
+        { observe: 'response', params })
       .pipe(
         map(response => {
           paginatedResult.result = response.body;
@@ -82,5 +79,11 @@ export class UserService {
           return paginatedResult;
         })
       );
+  }
+
+  getMessageThread(id: number, recipientId: number) {
+    return this.http.get<Message[]>(
+      this.baseUrl + 'users/' + id + '/messages/thread/' + recipientId
+    );
   }
 }

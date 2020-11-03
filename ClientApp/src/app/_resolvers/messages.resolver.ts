@@ -9,8 +9,8 @@ import { AuthService } from '../_services/auth.service';
 
 @Injectable()
 export class MessagesResolver implements Resolve<Message[]> {
-  pageNumber = 1;
-  pageSize = 5;
+  //pageNumber = 1;
+  //pageSize = 5;
   messageContainer = 'Unread';
 
   constructor(
@@ -24,8 +24,8 @@ export class MessagesResolver implements Resolve<Message[]> {
     return this.userService
       .getMessages(
         this.authService.decodedToken.nameid,
-        this.pageNumber,
-        this.pageSize,
+        //this.pageNumber,
+        //this.pageSize,
         this.messageContainer
       )
       .pipe(

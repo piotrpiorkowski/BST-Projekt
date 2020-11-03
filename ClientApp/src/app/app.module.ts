@@ -8,6 +8,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TimeagoModule } from 'ngx-timeago';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
@@ -37,6 +38,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes-guard';
 import { PhotoEditorComponent } from './_components/photo-editor/photo-editor.component';
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { MessagesComponent } from './_components/messages/messages.component';
+import { MemberMessagesComponent } from './_components/member-messages/member-messages.component';
 
 
 
@@ -61,7 +63,8 @@ export function tokenGetter() {
     MemberDetailComponent,
     MemberEditComponent,
     PhotoEditorComponent,
-    MessagesComponent
+    MessagesComponent,
+    MemberMessagesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -73,6 +76,7 @@ export function tokenGetter() {
     TabsModule.forRoot(),
     TimeagoModule.forRoot(),
     PaginationModule.forRoot(),
+    ButtonsModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     NgxGalleryModule,
     FileUploadModule,

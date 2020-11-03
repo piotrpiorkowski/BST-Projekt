@@ -31,12 +31,19 @@ export class MessagesComponent implements OnInit {
   }
 
   loadMessages() {
+    this.messages.forEach(m => {
+      m.recipientPhotoUrl = null;
+      m.senderPhotoUrl = null;
+      m.recipientKnownAs = null;
+      m.senderKnownAs = null;
+    });
     this.userService
       .getMessages(
         this.authService.decodedToken.nameid,
-        this.pagination.currentPage,
-        this.pagination.itemsPerPage,
-        this.messageContainer
+        //this.pagination.currentPage,
+        //this.pagination.itemsPerPage,
+        this.messageContainer,
+        
       )
       .subscribe(
         (res: PaginatedResult<Message[]>) => {
