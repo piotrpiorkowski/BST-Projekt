@@ -47,9 +47,7 @@
                 <span *ngIf="message.isRead" class="text-success">(Read {{ message.dateRead | timeago }})</span>
               </small>
               <strong class="primary-font float-right">
-                {{
-                message.senderKnownAs
-                }}
+                {{message.senderKnownAs}}
               </strong>
             </div>
             <p>{{ message.content }}</p>
