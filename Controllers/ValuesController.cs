@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BST_Projekt.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,7 +18,8 @@ namespace BST_Projekt.Controllers
         {
             _context = context;
         }
-        // GET api/values
+        
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
@@ -27,6 +29,7 @@ namespace BST_Projekt.Controllers
         }
 
         // GET api/values/5
+        [Authorize(Roles = "Coach")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValues(int id)
         {
