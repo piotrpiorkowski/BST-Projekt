@@ -14,7 +14,6 @@ using System.Threading.Tasks;
 
 namespace BST_Projekt.Controllers
 {
-    [Authorize]
     [Route("api/users/{userId}/photos")]
     [ApiController]
     public class PhotosController : ControllerBase

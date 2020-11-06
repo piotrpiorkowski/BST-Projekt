@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace BST_Projekt.Controllers
 {
     [ServiceFilter(typeof(LogUserActivity))]
-    [Authorize]
     [Route("api/users/{userId}/[controller]")]
     [ApiController]
     public class MessagesController : ControllerBase

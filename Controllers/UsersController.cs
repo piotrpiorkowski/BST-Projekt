@@ -17,7 +17,6 @@ using System.Threading.Tasks;
 namespace BST_Projekt.Controllers
 {
     [ServiceFilter(typeof(LogUserActivity))]
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
