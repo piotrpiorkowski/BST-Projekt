@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using BST_Projekt.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace BST_Projekt.Controllers
 {
@@ -21,15 +22,23 @@ namespace BST_Projekt.Controllers
     [AllowAnonymous]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthRepository _repo;
+        
         private readonly IConfiguration _config;
         private readonly IMapper _mapper;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+        private readonly IBstRepository _repo;
 
-        public AuthController(IAuthRepository repo, IConfiguration config, IMapper mapper)
+        public AuthController(IConfiguration config, IMapper mapper,
+            UserManager<User> userManager, SignInManager<User> signInManager, IBstRepository repo)
+            
         {
-            _repo = repo;
+           
             _config = config;
             _mapper = mapper;
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _repo = repo;
         }
 
         [HttpPost("register")]
@@ -37,34 +46,53 @@ namespace BST_Projekt.Controllers
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
             
-
-            userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
-
-            if (await _repo.UserExists(userForRegisterDto.Username))
-                return BadRequest("Username already exists");
-
             var userToCreate = _mapper.Map<User>(userForRegisterDto);
-            var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
-            var userToReturn = _mapper.Map<UserForDetailedDto>(createdUser);
+            var result = await _userManager.CreateAsync(userToCreate,
+                userForRegisterDto.Password);
+            
+            var userToReturn = _mapper.Map<UserForDetailedDto>(userToCreate);
 
-            return CreatedAtRoute("GetUser", new { Controller = "Users", id = createdUser.Id }, userToReturn);
+            if (result.Succeeded)
+            {
+                return CreatedAtRoute("GetUser", new { Controller = "Users", id = 
+                    userToCreate.Id}, userToReturn);
+            }
+
+            return BadRequest(result.Errors);
         }
 
         [HttpPost("Login")]
 
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
-            
+            var userFull = await _userManager.FindByNameAsync(userForLoginDto.Username);
+            var result = await _signInManager.CheckPasswordSignInAsync(userFull, userForLoginDto.Password, false);
 
-            var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
-
-            if (userFromRepo == null)
-                return Unauthorized();
-
-            var claims = new[]
+            if (result.Succeeded)
             {
-            new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
-            new Claim(ClaimTypes.Name, userFromRepo.UserName)
+                var user = _mapper.Map<UserForPlanerDto>(userFull);
+                if (string.IsNullOrEmpty(user.PhotoUrl))
+                {
+                    var userMainPhoto = await _repo.GetMainPhotoForUser(userFull.Id);
+                    if (userMainPhoto != null)
+                        user.PhotoUrl = userMainPhoto.Url;
+                }
+
+                return Ok(new
+                {
+                    token = GenerateJwtToken(userFull),
+                    user
+                });
+            }
+            return Unauthorized();               
+        }
+
+        private string GenerateJwtToken(User user)
+        {
+            var claims = new[]
+           {
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Name, user.UserName)
         };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8
@@ -84,15 +112,8 @@ namespace BST_Projekt.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            var user = _mapper.Map<UserForPlanerDto>(userFromRepo);
-
-            return Ok(new
-            {
-                token = tokenHandler.WriteToken(token),
-                user
-            });
+            return tokenHandler.WriteToken(token);
         }
-
     }
 
 }
