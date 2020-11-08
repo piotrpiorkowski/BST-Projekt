@@ -16,9 +16,11 @@ export class AuthService {
   currentUser: User;
   photoUrl = new BehaviorSubject<string>('../../assets/user.png');
   currentPhotoUrl = this.photoUrl.asObservable();
+  
 
   constructor(private http: HttpClient) { }
 
+  
   changeMemberPhoto(photoUrl: string) {
     this.photoUrl.next(photoUrl);
   }
@@ -32,7 +34,8 @@ export class AuthService {
           localStorage.setItem('user', JSON.stringify(user.user));
           this.decodedToken = this.jwtHelper.decodeToken(user.token);
           this.currentUser = user.user;
-          this.changeMemberPhoto(this.currentUser.photoUrl);        
+          this.changeMemberPhoto(this.currentUser.photoUrl);
+          console.log(this.decodedToken)
         }
       })
     );
@@ -56,6 +59,6 @@ export class AuthService {
         return;
       }
     });
-    return isMatch
+    return isMatch;
   }
 }

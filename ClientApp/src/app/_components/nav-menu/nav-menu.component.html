@@ -32,7 +32,7 @@
          <li *ngIf="loggedIn()" class="mx-2 nav-item" [routerLinkActive]="['link-active']">
            <a class="nav-link text-dark" [routerLink]="['/messages']">MESSAGES </a>
          </li>
-         <li *ngIf="loggedIn()" class="mx-2 nav-item" [routerLinkActive]="['link-active']">
+         <li  *appHasRole="['Admin', 'Moderator']" in li  class="mx-2 nav-item" [routerLinkActive]="['link-active']">
            <a class="nav-link text-dark" [routerLink]="['/admin']">A </a>
          </li>
          <li class="mx-2 nav-item">

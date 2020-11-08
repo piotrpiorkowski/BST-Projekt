@@ -40,6 +40,7 @@ import { MessagesResolver } from './_resolvers/messages.resolver';
 import { MessagesComponent } from './_components/messages/messages.component';
 import { MemberMessagesComponent } from './_components/member-messages/member-messages.component';
 import { AdminPanelComponent } from './_components/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './_directives/has-role.directive';
 
 
 
@@ -66,7 +67,8 @@ export function tokenGetter() {
     PhotoEditorComponent,
     MessagesComponent,
     MemberMessagesComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    HasRoleDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
