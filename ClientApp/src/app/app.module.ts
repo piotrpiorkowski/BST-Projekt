@@ -39,6 +39,7 @@ import { PhotoEditorComponent } from './_components/photo-editor/photo-editor.co
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { MessagesComponent } from './_components/messages/messages.component';
 import { MemberMessagesComponent } from './_components/member-messages/member-messages.component';
+import { AdminPanelComponent } from './_components/admin-panel/admin-panel.component';
 
 
 
@@ -64,7 +65,8 @@ export function tokenGetter() {
     MemberEditComponent,
     PhotoEditorComponent,
     MessagesComponent,
-    MemberMessagesComponent
+    MemberMessagesComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

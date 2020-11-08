@@ -13,22 +13,38 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes-guard';
 import { PlanerComponent } from './_components/planer/planer.component';
 import { MessagesComponent } from './_components/messages/messages.component';
 import { MessagesResolver } from './_resolvers/messages.resolver';
+import { AdminPanelComponent } from './_components/admin-panel/admin-panel.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
+  {
+    path: '',
+    runGuardsAndResolvers: 'always',
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'planer', component: PlanerComponent },
+      {
+        path: 'member/list', component: MemberListComponent,
+        resolve: { users: MemberListResolver }
+      },
+      {
+        path: 'member/list/:id', component: MemberDetailComponent,
+        resolve: { user: MemberDetailResolver }
+      },
+      {
+        path: 'member/edit', component: MemberEditComponent,
+        resolve: { user: MemberEditResolver }, canDeactivate: [PreventUnsavedChanges]
+      },
+      { path: 'messages', component: MessagesComponent, resolve: { messages: MessagesResolver } },
+      { path: 'admin', component: AdminPanelComponent, data: { roles: ['Admin', 'Moderator'] } },
+    ]
+  },
   { path: 'mobility', component: MobilityComponent },
-  { path: 'planer', component: PlanerComponent },
-  { path: 'member/list', component: MemberListComponent,
-    resolve: { users: MemberListResolver } },
-  { path: 'member/list/:id', component: MemberDetailComponent,
-    resolve: { user: MemberDetailResolver }},
-  { path: 'member/edit', component: MemberEditComponent,
-    resolve: { user: MemberEditResolver }, canDeactivate: [PreventUnsavedChanges]},
-  { path: 'messages', component: MessagesComponent, resolve: { messages: MessagesResolver }},
   { path: 'about-us', component: AboutUsComponent },
   { path: 'account', component: AccountComponent },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 
 
 

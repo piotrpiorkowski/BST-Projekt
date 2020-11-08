@@ -81,7 +81,7 @@ namespace BST_Projekt.Controllers
 
                 return Ok(new
                 {
-                    token = GenerateJwtToken(userFull),
+                    token = GenerateJwtToken(userFull).Result,
                     user
                 });
             }
