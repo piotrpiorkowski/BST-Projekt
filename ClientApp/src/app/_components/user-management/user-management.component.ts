@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../_models/user';
 import { AdminService } from '../../_services/admin.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { RolesModalComponent } from '../roles-modal/roles-modal.component';
 
 @Component({
   selector: 'app-user-management',
@@ -9,8 +11,9 @@ import { AdminService } from '../../_services/admin.service';
 })
 export class UserManagementComponent implements OnInit {
   users: User[];
+  bsModalRef: BsModalRef;
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.getUsersWithRoles();
@@ -23,4 +26,43 @@ export class UserManagementComponent implements OnInit {
       console.log(error);
     });
   }
-}
+
+  editRolesModal(user: User) {
+    const initialState = {
+      user,
+      roles: this.getRolesArray(user)
+    };
+    this.bsModalRef = this.modalService.show(RolesModalComponent, { initialState });
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+
+  private getRolesArray(user) {
+    const roles = [];
+    const userRoles = user.roles;
+    const availableRoles: any[] = [
+      { name: 'Coach', value: 'Coach' },
+      { name: 'Client', value: 'Client' },
+      { name: 'Admin', value: 'Admin' },
+      { name: 'Moderator', value: 'Moderator' },
+      { name: 'VIP', value: 'VIP' }
+    ];
+
+    for (let i = 0; i < availableRoles.length; i++) {
+      let isMatch = false;
+      for (let j = 0; j < userRoles.length; j++) {
+        if (availableRoles[i].name === userRoles[j]) {
+          isMatch = true;
+          availableRoles[i].checked = true;
+          roles.push(availableRoles[i]);
+          break;
+        }
+      }
+      if (!isMatch) {
+        availableRoles[i].checked = false;
+        roles.push(availableRoles[i]);
+      }
+    }
+    return roles;
+  }
+  }
+
