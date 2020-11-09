@@ -41,6 +41,9 @@ import { MessagesComponent } from './_components/messages/messages.component';
 import { MemberMessagesComponent } from './_components/member-messages/member-messages.component';
 import { AdminPanelComponent } from './_components/admin-panel/admin-panel.component';
 import { HasRoleDirective } from './_directives/has-role.directive';
+import { UserManagementComponent } from './_components/user-management/user-management.component';
+import { PhotoManagementComponent } from './_components/photo-management/photo-management.component';
+import { AdminService } from './_services/admin.service';
 
 
 
@@ -68,7 +71,9 @@ export function tokenGetter() {
     MessagesComponent,
     MemberMessagesComponent,
     AdminPanelComponent,
-    HasRoleDirective
+    HasRoleDirective,
+    UserManagementComponent,
+    PhotoManagementComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -102,6 +107,7 @@ export function tokenGetter() {
     MemberEditResolver,
     MessagesResolver,
     AuthService,
+    AdminService,
     PreventUnsavedChanges
   ],
   bootstrap: [AppComponent]
