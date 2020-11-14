@@ -14,11 +14,14 @@ export class HasRoleDirective implements OnInit {
     private authService: AuthService) { }
 
   ngOnInit() {
+    if (this.authService.decodedToken == null) {
+      return;
+    }
     const userRoles = this.authService.decodedToken.role as Array<string>;
     if (!userRoles) {
       this.viewContainerRef.clear();
     }
-
+     
     if (this.authService.roleMatch(this.appHasRole)) {
       if (!this.isVisible) {
         this.isVisible = true;
