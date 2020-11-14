@@ -1,13 +1,7 @@
-﻿using BST_Projekt.Data;
-using BST_Projekt.Dtos;
-using BST_Projekt.Models;
+﻿using BST_Projekt.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BST_Projekt.Data
 {
@@ -15,8 +9,9 @@ namespace BST_Projekt.Data
         UserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
         public DataContext(DbContextOptions<DataContext> options) : base
-        (options) { }
-       
+        (options)
+        { }
+
         public DbSet<Value> Values { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Message> Messages { get; set; }
@@ -27,7 +22,7 @@ namespace BST_Projekt.Data
 
             builder.Entity<UserRole>(userRole =>
             {
-                userRole.HasKey(ur => new {ur.UserId, ur.RoleId});
+                userRole.HasKey(ur => new { ur.UserId, ur.RoleId });
 
                 userRole.HasOne(ur => ur.Role)
                 .WithMany(r => r.UserRoles)

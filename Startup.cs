@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -69,7 +68,7 @@ namespace BST_Projekt
                 options.AddPolicy("VipOnly", policy => policy.RequireRole("VIP"));
             });
 
-            services.AddDbContext<DataContext>(x => x.UseSqlite
+            services.AddDbContext<DataContext>(x => x.UseSqlServer
             (Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews(options =>
             {
@@ -82,13 +81,13 @@ namespace BST_Projekt
             {
                 opt.SerializerSettings.ReferenceLoopHandling =
                 Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            });                
+            });
             services.AddCors();
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
-            services.AddAutoMapper(typeof(BstRepository).Assembly);          
-            services.AddScoped<IBstRepository, BstRepository>();          
+            services.AddAutoMapper(typeof(BstRepository).Assembly);
+            services.AddScoped<IBstRepository, BstRepository>();
             services.AddScoped<LogUserActivity>();
-            
+
 
 
             // In production, the Angular files will be served from this directory
@@ -107,19 +106,20 @@ namespace BST_Projekt
             }
             else
             {
-                app.UseExceptionHandler(builder => { 
-                builder.Run(async context =>
+                app.UseExceptionHandler(builder =>
                 {
-                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-
-                    var error = context.Features.Get<IExceptionHandlerFeature>();
-                    if (error != null)
+                    builder.Run(async context =>
                     {
-                        context.Response.AddApplicationError(error.Error.Message);
-                        await context.Response.WriteAsync(error.Error.Message);
-                    }
+                        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+
+                        var error = context.Features.Get<IExceptionHandlerFeature>();
+                        if (error != null)
+                        {
+                            context.Response.AddApplicationError(error.Error.Message);
+                            await context.Response.WriteAsync(error.Error.Message);
+                        }
+                    });
                 });
-            });
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }

@@ -8,7 +8,7 @@ namespace BST_Projekt.Models
 {
     public class User : IdentityUser<int>
     {
-        
+
         public DateTime LastActive { get; set; }
         public string Introduction { get; set; }
         public string City { get; set; }

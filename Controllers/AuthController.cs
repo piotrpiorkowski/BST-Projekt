@@ -1,11 +1,8 @@
 ﻿using BST_Projekt.Data;
 using BST_Projekt.Dtos;
-
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -23,7 +20,7 @@ namespace BST_Projekt.Controllers
     [AllowAnonymous]
     public class AuthController : ControllerBase
     {
-        
+
         private readonly IConfiguration _config;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
@@ -32,9 +29,7 @@ namespace BST_Projekt.Controllers
 
         public AuthController(IConfiguration config, IMapper mapper,
             UserManager<User> userManager, SignInManager<User> signInManager, IBstRepository repo)
-            
         {
-           
             _config = config;
             _mapper = mapper;
             _userManager = userManager;
@@ -46,17 +41,21 @@ namespace BST_Projekt.Controllers
 
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
-            
+
             var userToCreate = _mapper.Map<User>(userForRegisterDto);
             var result = await _userManager.CreateAsync(userToCreate,
                 userForRegisterDto.Password);
-            
+
             var userToReturn = _mapper.Map<UserForDetailedDto>(userToCreate);
 
             if (result.Succeeded)
             {
-                return CreatedAtRoute("GetUser", new { Controller = "Users", id = 
-                    userToCreate.Id}, userToReturn);
+                return CreatedAtRoute("GetUser", new
+                {
+                    Controller = "Users",
+                    id =
+                    userToCreate.Id
+                }, userToReturn);
             }
 
             return BadRequest(result.Errors);
@@ -85,7 +84,7 @@ namespace BST_Projekt.Controllers
                     user
                 });
             }
-            return Unauthorized();               
+            return Unauthorized();
         }
 
         private async Task<string> GenerateJwtToken(User user)
