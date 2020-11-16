@@ -23,7 +23,6 @@ namespace BST_Projekt
                     var context = services.GetRequiredService<DataContext>();
                     var userManager = services.GetRequiredService<UserManager<User>>();
                     var roleManager = services.GetRequiredService<RoleManager<Role>>();
-                    context.Database.EnsureCreated();
                     context.Database.Migrate();
                     Seed.SeedUsers(userManager, roleManager);
                 }

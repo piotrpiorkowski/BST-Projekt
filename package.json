@@ -18,7 +18,8 @@
     "@angular/cli": "^9.1.7"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "cd ClientApp && ng serve"
   },
   "repository": {
     "type": "git",
