@@ -21,6 +21,10 @@ export class NavMenuComponent implements OnInit {
     this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
+  isAdministratorPanelVisible(): boolean {
+    return this.authService.roleMatch(['Admin', 'Moderator']);
+  }
+
   login() {
     this.authService.login(this.model).subscribe(next => {
       this.alertify.success('Logged in successfully');
@@ -29,7 +33,6 @@ export class NavMenuComponent implements OnInit {
     }, () => {
         this.router.navigate(['/planer']);
     });
-    
   }
 
   loggedIn() {
@@ -43,7 +46,6 @@ export class NavMenuComponent implements OnInit {
     this.authService.currentUser = null;
     this.alertify.message('logged out');
     this.router.navigate(['/']);
-
   }
 
 
