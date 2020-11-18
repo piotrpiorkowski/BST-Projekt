@@ -4,10 +4,9 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace BST_Projekt.Data
 {
-    public class Seed
+    public static class Seed
     {
         public static void SeedUsers(UserManager<User> userManager, RoleManager<Role> roleManager)
         {
@@ -27,13 +26,16 @@ namespace BST_Projekt.Data
 
                 foreach (var role in roles)
                 {
-                    roleManager.CreateAsync(role).Wait();
+                    roleManager.CreateAsync(role).GetAwaiter().GetResult();
                 }
 
                 foreach (var user in users)
                 {
-                    userManager.CreateAsync(user, "password").Wait();
-                    userManager.AddToRoleAsync(user, "Coach");
+                    var test = userManager.CreateAsync(user, "password").GetAwaiter().GetResult();
+                    if (test.Succeeded)
+                    {
+                        userManager.AddToRoleAsync(user, "Coach").GetAwaiter().GetResult();
+                    }
                 }
 
                 var adminUser = new User
@@ -41,12 +43,12 @@ namespace BST_Projekt.Data
                     UserName = "Admin"
                 };
 
-                var result = userManager.CreateAsync(adminUser, "password").Result;
+                var result = userManager.CreateAsync(adminUser, "password").GetAwaiter().GetResult();
 
                 if (result.Succeeded)
                 {
-                    var admin = userManager.FindByNameAsync("Admin").Result;
-                    userManager.AddToRolesAsync(admin, new[] { "Admin", "Moderator" });
+                    var admin = userManager.FindByNameAsync("Admin").GetAwaiter().GetResult();
+                    userManager.AddToRolesAsync(admin, new[] { "Admin", "Moderator" }).GetAwaiter().GetResult();
                 }
             }
 
