@@ -15,6 +15,7 @@ import { MessagesComponent } from './_components/messages/messages.component';
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { AdminPanelComponent } from './_components/admin-panel/admin-panel.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { PlanerNotloggedComponent } from './_components/planer-notlogged/planer-notlogged.component';
 
 
 export const appRoutes: Routes = [
@@ -44,6 +45,7 @@ export const appRoutes: Routes = [
   { path: 'mobility', component: MobilityComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'account', component: AccountComponent },
+  { path: 'planer/notlogged', component: PlanerNotloggedComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 
 

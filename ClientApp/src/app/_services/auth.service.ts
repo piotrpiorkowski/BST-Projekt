@@ -6,13 +6,13 @@ import { JwtHelperService } from '@auth0/angular-jwt'
 import { environment } from '../../environments/environment';
 import { User } from '../_models/user';
 
-interface IDecodedToken {
-  exp: string;
-  iat: string;
-  nameid: number;
-  nbf: string;
-  role: string[];
-}
+//interface IDecodedToken {
+//  exp: string;
+//  iat: string;
+//  nameid: number;
+//  nbf: string;
+//  role: string[];
+//}
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,8 @@ interface IDecodedToken {
 export class AuthService {
   baseUrl = environment.apiUrl + 'auth/';
   jwtHelper = new JwtHelperService();
-  decodedToken: IDecodedToken;
+  decodedToken: any;
+  //decodedToken: IDecodedToken;
   currentUser: User;
   photoUrl = new BehaviorSubject<string>('../../assets/user.png');
   currentPhotoUrl = this.photoUrl.asObservable();
@@ -59,14 +60,15 @@ export class AuthService {
     return !this.jwtHelper.isTokenExpired(token);
   }
 
-  roleMatch(allowedRoles: string[]): boolean {
+  roleMatch(allowedRoles/*: string[]*/): boolean {
     let isMatch = false;
     if (this.decodedToken == null || this.decodedToken.role == null) {
       return false;
     }
     const userRoles = this.decodedToken.role as Array<string>;
     allowedRoles.forEach(element => {
-      if (userRoles.indexOf(element)===-1) {
+      if (userRoles.includes(element))
+      /*if (userRoles.indexOf(element)===-1)*/ {
         isMatch = true;
         return;
       }

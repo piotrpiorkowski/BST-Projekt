@@ -46,6 +46,7 @@ import { UserManagementComponent } from './_components/user-management/user-mana
 import { PhotoManagementComponent } from './_components/photo-management/photo-management.component';
 import { AdminService } from './_services/admin.service';
 import { RolesModalComponent } from './_components/roles-modal/roles-modal.component';
+import { PlanerNotloggedComponent } from './_components/planer-notlogged/planer-notlogged.component';
 
 
 
@@ -76,7 +77,8 @@ export function tokenGetter() {
     HasRoleDirective,
     UserManagementComponent,
     PhotoManagementComponent,
-    RolesModalComponent
+    RolesModalComponent,
+    PlanerNotloggedComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

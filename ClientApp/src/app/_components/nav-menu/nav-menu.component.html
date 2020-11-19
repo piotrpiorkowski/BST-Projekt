@@ -1,10 +1,14 @@
- <nav class="navbar h-1 navbar-expand-md navbar-toggleable-md navbar-light bg-light border-bottom py-1">
+ <nav class="navbar h-1 navbar-expand-md navbar-toggleable-md navbar-light bg-dark py-1">
    <div class="container">
      <a class="navbar-brand" [routerLink]="['/']"><img src="assets/images/logo.jpg" width="83" height="52"></a>
 
-     <div class="account  d-block d-md-none">
-       <a [routerLink]="['/account']"><i class="far fa-user py-2 d-block d-md-none" style="font-size:2rem;"></i></a>
+     <div class="messages d-block d-md-none">
+       <a *ngIf="loggedIn()" [routerLink]="['/messages']"><i class="far fa-envelope py-2 d-block d-md-none" style="font-size:2.5rem;"></i></a>
      </div>
+     <div class="account d-block d-md-none">
+       <a *ngIf="!loggedIn()" [routerLink]="['/account']"><i class="far fa-user py-2 d-block d-md-none" style="font-size:2rem;"></i></a>
+     </div>
+     
      <button class="navbar-toggler order-first border-none"
              type="button"
              data-toggle="collapse"
@@ -21,42 +25,48 @@
          <li class="mx-2 nav-item"
              [routerLinkActive]="['link-active']"
              [routerLinkActiveOptions]="{ exact: true }">
-           <a class="nav-link text-dark" [routerLink]="['/']">STRONA GŁÓWNA</a>
+           <a class="nav-link text-light" [routerLink]="['/']">GŁÓWNA</a>
+         </li>
+         <li class="mx-2 nav-item" [routerLinkActive]="['link-active']">
+           <a class="nav-link text-light" [routerLink]="['/mobility']">MOBILITY</a>
+         </li>
+         <li *ngIf="!loggedIn()" class="mx-2 nav-item" [routerLinkActive]="['link-active']">
+           <a class="nav-link text-light" [routerLink]="['/planer/notlogged']">PLANER</a>
          </li>
          <li *ngIf="loggedIn()" class="mx-2 nav-item" [routerLinkActive]="['link-active']">
-           <a class="nav-link text-dark" [routerLink]="['/mobility']">MOBILITY</a>
+           <a class="nav-link text-light" [routerLink]="['/planer']">PLANER </a>
          </li>
-         <li *ngIf="loggedIn()" class="mx-2 nav-item" [routerLinkActive]="['link-active']">
-           <a class="nav-link text-dark" [routerLink]="['/planer']">PLANER </a>
-         </li>
-         <li *ngIf="loggedIn()" class="mx-2 nav-item" [routerLinkActive]="['link-active']">
-           <a class="nav-link text-dark" [routerLink]="['/messages']">MESSAGES </a>
-         </li>
-         <li  *ngIf="isAdministratorPanelVisible()"  class="mx-2 nav-item" [routerLinkActive]="['link-active']">
-           <a class="nav-link text-dark" [routerLink]="['/admin']">A </a>
+         <li *ngIf="loggedIn() && !isItemForCoachVisible()" class="mx-2 nav-item" [routerLinkActive]="['link-active']">
+           <a class="nav-link text-light" [routerLink]="['/member/list']">TRENERZY</a>
          </li>
          <li class="mx-2 nav-item">
-           <a class="nav-link text-dark" href="#list-item-1">O NAS</a>
+           <a class="nav-link text-light" href="#list-item-1">O NAS</a>
          </li>
-
+         <li *ngIf="isAdministratorPanelVisible()" class="mx-2 nav-item" [routerLinkActive]="['link-active']">
+           <a class="nav-link text-light" [routerLink]="['/admin']">ADMIN </a>
+         </li>
        </ul>
      </div>
 
+     <div class="messages d-none d-md-block">
+       <a *ngIf="loggedIn()" [routerLink]="['/messages']"><i class="far fa-envelope py-2 mr-3 d-none d-md-block" style="font-size:2.5rem;"></i></a>
+     </div>
      <div class="account d-none d-md-block">
-       <a [routerLink]="['/account']"><i class="far fa-user py-2 mr-3 d-none d-md-block" style="font-size:2rem;"></i></a>
+       <a *ngIf="!loggedIn()" [routerLink]="['/account']"><i class="far fa-user py-2 mr-3 d-none d-md-block" style="font-size:2rem;"></i></a>
      </div>
 
-     <div *ngIf="loggedIn()" dropdown class="dropdown">
+     <div *ngIf="loggedIn()" dropdown class="dropdown text-light">
        <span class="mr-1">
-         <img class="profile-photo" src="{{photoUrl || '../../assets/user.png'}}" alt="" >
+         <img class="profile-photo rounded-circle" src="{{photoUrl || '../../assets/user.png'}}" alt="">
        </span>
        <a dropdownToggle class="dropdown-toggle">
-         Welcome {{authService.decodedToken.unique_name | titlecase}} 
+         Welcome {{authService.decodedToken.unique_name | titlecase}}
        </a>
 
        <div *dropdownMenu class="dropdown-menu mt-3">
          <a class="dropdown-item" [routerLink]="['/member/edit']">
-         <i class="fas fa-user mr-1"></i>Edit Profile</a>
+           <i class="fas fa-user mr-1"></i>Edit Profile
+         </a>
          <div class="dropdown-divider"></div>
          <a class="dropdown-item" (click)="logout()"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
        </div>

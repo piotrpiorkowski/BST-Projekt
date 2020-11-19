@@ -25,6 +25,10 @@ export class NavMenuComponent implements OnInit {
     return this.authService.roleMatch(['Admin', 'Moderator']);
   }
 
+  isItemForCoachVisible(): boolean {
+    return this.authService.roleMatch(['Coach']);
+  }
+
   login() {
     this.authService.login(this.model).subscribe(next => {
       this.alertify.success('Logged in successfully');

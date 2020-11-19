@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'app-planer',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanerComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
   }
 
+  isItemForCoachVisible(): boolean {
+    return this.authService.roleMatch(['Coach']);
+  }
 }
