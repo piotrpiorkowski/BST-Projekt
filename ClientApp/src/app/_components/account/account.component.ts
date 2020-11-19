@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-  @Output() cancelRegister = new EventEmitter();
+  
   user: User;
   registerForm: FormGroup;
 
@@ -50,8 +50,6 @@ export class AccountComponent implements OnInit {
     }
   }
 
-  cancel() {
-    this.cancelRegister.emit(false);
-  }
+ 
 
 }
