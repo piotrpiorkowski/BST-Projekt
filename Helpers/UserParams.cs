@@ -16,6 +16,9 @@ namespace BST_Projekt.Helpers
 			get { return pageSize; }
 			set { pageSize = (value > MaxPageSize) ? MaxPageSize : value ; }
 		}
+		public int UserId { get; set; }
+		public bool Likees { get; set; } = false;
+		public bool Likers { get; set; } = false;
 
 	}
 }

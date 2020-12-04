@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../_services/user.service';
 import { TabsetConfig, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from '@kolkov/ngx-gallery';
+import { AuthService } from '../../_services/auth.service';
+
 
 
 @Component({
@@ -21,7 +23,7 @@ export class MemberDetailComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  constructor(private userService: UserService, private alertify: AlertifyService,
+  constructor(private authService: AuthService, private userService: UserService, private alertify: AlertifyService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -61,5 +63,13 @@ export class MemberDetailComponent implements OnInit {
 
   selectTab(tabId: number) {
     this.memberTabs.tabs[tabId].active = true;
+  }
+
+  sendLike(id: number) {
+    this.userService.sendLike(this.authService.decodedToken.nameid, id).subscribe(data => {
+      this.alertify.success('Added to your team');
+    }, error => {
+      this.alertify.error(error);
+    });
   }
 }

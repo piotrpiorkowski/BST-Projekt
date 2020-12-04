@@ -13,6 +13,8 @@ namespace BST_Projekt.Models
         public string Introduction { get; set; }
         public string City { get; set; }
         public virtual ICollection<Photo> Photos { get; set; }
+        public virtual ICollection<Like> Likers { get; set; }
+        public virtual ICollection<Like> Likees { get; set; }
         public virtual ICollection<Message> MessagesSent { get; set; }
         public virtual ICollection<Message> MessagesReceived { get; set; }
         public virtual ICollection<UserRole> UserRoles { get; set; }

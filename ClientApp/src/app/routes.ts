@@ -17,6 +17,8 @@ import { AdminPanelComponent } from './_components/admin-panel/admin-panel.compo
 import { AuthGuard } from './_guards/auth.guard';
 import { PlanerNotloggedComponent } from './_components/planer-notlogged/planer-notlogged.component';
 import { LoginComponent } from './_components/login/login.component';
+import { ListsResolver } from './_resolvers/lists.resolver';
+import { SidememberListComponent } from './_components/sidemember-list/sidemember-list.component';
 
 
 export const appRoutes: Routes = [
@@ -34,6 +36,10 @@ export const appRoutes: Routes = [
       {
         path: 'member/list/:id', component: MemberDetailComponent,
         resolve: { user: MemberDetailResolver }
+      },
+      {
+        path: 'sidemember/list', component: SidememberListComponent,
+        resolve: { users: ListsResolver }
       },
       {
         path: 'member/edit', component: MemberEditComponent,

@@ -61,6 +61,7 @@
     <None Remove="ClientApp\src\app\_models\pagination.ts" />
     <None Remove="ClientApp\src\app\_models\photo.ts" />
     <None Remove="ClientApp\src\app\_models\user.ts" />
+    <None Remove="ClientApp\src\app\_resolvers\lists.resolver.ts" />
     <None Remove="ClientApp\src\app\_resolvers\member - kopiować.detail.resolver.ts" />
     <None Remove="ClientApp\src\app\_resolvers\member.detail.resolver.ts" />
     <None Remove="ClientApp\src\app\_resolvers\member.edit.resolver.ts" />
@@ -74,7 +75,6 @@
   <ItemGroup>
     <Folder Include="ClientApp\src\app\_directives\" />
     <Folder Include="ClientApp\src\assets\images\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ClientApp\tsconfig.json" />
@@ -86,6 +86,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\_models\pagination.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_models\photo.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_models\user.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_resolvers\lists.resolver.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_resolvers\member.detail.resolver.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_resolvers\member.edit.resolver.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_resolvers\member.list.resolver.ts" />

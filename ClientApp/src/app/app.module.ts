@@ -48,6 +48,9 @@ import { AdminService } from './_services/admin.service';
 import { RolesModalComponent } from './_components/roles-modal/roles-modal.component';
 import { PlanerNotloggedComponent } from './_components/planer-notlogged/planer-notlogged.component';
 import { LoginComponent } from './_components/login/login.component';
+import { ListsResolver } from './_resolvers/lists.resolver';
+import { SidememberListComponent } from './_components/sidemember-list/sidemember-list.component';
+
 
 
 
@@ -80,7 +83,8 @@ export function tokenGetter() {
     PhotoManagementComponent,
     RolesModalComponent,
     PlanerNotloggedComponent,
-    LoginComponent
+    LoginComponent,
+    SidememberListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -114,6 +118,7 @@ export function tokenGetter() {
     MemberListResolver,
     MemberEditResolver,
     MessagesResolver,
+    ListsResolver,
     AuthService,
     AdminService,
     PreventUnsavedChanges
