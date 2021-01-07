@@ -1,4 +1,4 @@
-/*.deco-none {
+.deco-none {
   color: inherit;
   text-decoration: none;
 }
@@ -11,4 +11,4 @@
   .deco-none:hover {
     color: inherit;
     text-decoration: inherit;
-  }*/
+  }

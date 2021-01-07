@@ -28,7 +28,14 @@ export class SidememberListComponent implements OnInit {
       this.users = data['users'].result;
       //this.pagination = data['users'].pagination;
     });
-    this.likesParam = 'Likers';
+    //this.likesParam = 'Likers';
+    if (this.authService.decodedToken.role === 'Coach') {
+      this.likesParam = 'Likees';
+    }
+    else {
+      this.likesParam = 'Likers';
+    }
+    this.loadUsers();
   }
 
   loadUsers() {

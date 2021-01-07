@@ -13,7 +13,7 @@ export class PlanerComponent implements OnInit {
   ngOnInit() {
   }
 
-  isItemForCoachVisible(): boolean {
-    return this.authService.roleMatch(['Coach']);
-  }
+  //isItemForCoachVisible(): boolean {
+  //  return this.authService.roleMatch(['Coach']);
+  //}
 }
