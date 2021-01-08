@@ -6,6 +6,7 @@ import { User } from '../_models/user';
 import { PaginatedResult } from '../_models/pagination';
 import { map } from 'rxjs/operators';
 import { Message } from '../_models/message';
+import { AuthService } from './auth.service';
 
 
 
@@ -14,7 +15,7 @@ import { Message } from '../_models/message';
 })
 export class UserService {
   baseUrl = environment.apiUrl;
-  constructor(private http: HttpClient) { }
+  constructor(private authService: AuthService, private http: HttpClient) { }
 
   getUsers(/*page?, itemsPerPage?,*/ likesParam?): Observable<PaginatedResult<User[]>> {
     const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
@@ -116,5 +117,11 @@ export class UserService {
         {}
       )
       .subscribe();
+  }
+  deleteLike(id: number, recipientId: number) {
+    if (this.authService.decodedToken.role === 'Client')
+      return this.http.delete(this.baseUrl + 'users/' + id + '/like/' + recipientId)
+    else
+      return this.http.delete(this.baseUrl + 'users/' + recipientId + '/like/' + id) 
   }
 }

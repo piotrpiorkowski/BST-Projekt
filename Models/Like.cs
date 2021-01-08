@@ -11,5 +11,7 @@ namespace BST_Projekt.Models
         public int LikeeId { get; set; }
         public User Liker { get; set; }
         public User Likee { get; set; }
+        public bool LikerDeleted { get; set; }
+        public bool LikeeDeleted { get; set; }
     }
 }

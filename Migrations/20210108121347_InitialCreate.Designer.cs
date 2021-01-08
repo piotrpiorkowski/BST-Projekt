@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BST_Projekt.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201203140128_InitialCreate")]
+    [Migration("20210108121347_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,12 @@ namespace BST_Projekt.Migrations
 
                     b.Property<int>("LikeeId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("LikeeDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LikerDeleted")
+                        .HasColumnType("bit");
 
                     b.HasKey("LikerId", "LikeeId");
 

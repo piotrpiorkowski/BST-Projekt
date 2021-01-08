@@ -27,6 +27,12 @@ namespace BST_Projekt.Migrations
                     b.Property<int>("LikeeId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("LikeeDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LikerDeleted")
+                        .HasColumnType("bit");
+
                     b.HasKey("LikerId", "LikeeId");
 
                     b.HasIndex("LikeeId");

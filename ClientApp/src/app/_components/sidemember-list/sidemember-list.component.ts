@@ -15,6 +15,8 @@ export class SidememberListComponent implements OnInit {
   users: User[];
   pagination: Pagination;
   likesParam: string;
+  
+ 
 
   constructor(
     private authService: AuthService,
@@ -56,6 +58,28 @@ export class SidememberListComponent implements OnInit {
       );
   }
 
+  deleteLike(id: number) {   
+      this.alertify.confirm(
+        'Are you sure you want to delete this like?',
+        () => {
+            this.userService
+              .deleteLike(id, this.authService.decodedToken.nameid)
+              .subscribe(
+                () => {
+                  this.users.splice(
+                    this.users.findIndex(u => u.id === id),
+                    1
+                  );
+                  this.alertify.success('like has been deleted');
+                },
+                error => {
+                  this.alertify.error('Failed to delete the like');
+                }
+              );         
+        }
+      );
+    
+  }
   //pageChanged(event: any): void {
   //  this.pagination.currentPage = event.page;
   //  this.loadUsers();

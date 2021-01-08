@@ -19,6 +19,7 @@ namespace BST_Projekt.Helpers
 		public int UserId { get; set; }
 		public bool Likees { get; set; } = false;
 		public bool Likers { get; set; } = false;
+		
 
 	}
 }

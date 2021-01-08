@@ -175,7 +175,9 @@ namespace BST_Projekt.Migrations
                 columns: table => new
                 {
                     LikerId = table.Column<int>(nullable: false),
-                    LikeeId = table.Column<int>(nullable: false)
+                    LikeeId = table.Column<int>(nullable: false),
+                    LikerDeleted = table.Column<bool>(nullable: false),
+                    LikeeDeleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -75,6 +75,8 @@ namespace BST_Projekt.Controllers
         public async Task<IActionResult> LikeUser(int id, int recipientId)
         {
             if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                
+
                 return Unauthorized();
 
             var like = await _repo.GetLike(id, recipientId);
@@ -97,6 +99,32 @@ namespace BST_Projekt.Controllers
                 return Ok();
 
             return BadRequest("Failed to like user");
+        }
+
+        [HttpDelete("{id}/like/{recipientId}")]
+        public async Task<IActionResult> DeleteLike(int id, int recipientId)
+        {
+            if ((id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value)) 
+                && (recipientId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value)))
+                return Unauthorized();
+
+            var likeFromRepo = await _repo.GetLike(id, recipientId);
+
+
+
+            if (likeFromRepo.LikerId == id )
+                likeFromRepo.LikerDeleted = true;
+
+            if (likeFromRepo.LikeeId == recipientId)
+                likeFromRepo.LikeeDeleted = true;
+
+            if (likeFromRepo.LikerDeleted || likeFromRepo.LikeeDeleted)
+                _repo.Delete(likeFromRepo);
+
+            if (await _repo.SaveAll())
+                return NoContent();
+
+            throw new Exception("Error deleting the message");
         }
     }
 
