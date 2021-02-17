@@ -51,6 +51,7 @@ import { LoginComponent } from './_components/login/login.component';
 import { ListsResolver } from './_resolvers/lists.resolver';
 import { SidememberListComponent } from './_components/sidemember-list/sidemember-list.component';
 import { SidenavComponent } from './_components/sidenav/sidenav.component';
+import { SearchfilterPipe } from './searchfilter.pipe';
 
 
 
@@ -86,7 +87,8 @@ export function tokenGetter() {
     PlanerNotloggedComponent,
     LoginComponent,
     SidememberListComponent,
-    SidenavComponent
+    SidenavComponent,
+    SearchfilterPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -9,6 +9,14 @@
   }
 
   .deco-none:hover {
-    color: inherit;
-    text-decoration: inherit;
+    color: blue;
+   
   }
+
+  
+
+.profile-photo {
+  max-height: 35px;
+  /*border: 1px solid black;*/
+  display: inline;
+}
