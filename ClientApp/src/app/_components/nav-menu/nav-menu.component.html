@@ -28,7 +28,7 @@
          <li class="mx-2 nav-item"
              [routerLinkActive]="['link-active']"
              [routerLinkActiveOptions]="{ exact: true }">
-           <a class="nav-link text-light" [routerLink]="['/']">GŁÓWNA</a>
+           <a class="nav-link text-light" [routerLink]="['/']">STRONA GŁÓWNA</a>
          </li>
          <li class="mx-2 nav-item" [routerLinkActive]="['link-active']">
            <a class="nav-link text-light" [routerLink]="['/mobility']">MOBILITY</a>
@@ -42,8 +42,11 @@
          <li *ngIf="loggedIn() && !isItemForCoachVisible()" class="mx-2 nav-item" [routerLinkActive]="['link-active']">
            <a class="nav-link text-light" [routerLink]="['/member/list']">TRENERZY</a>
          </li>
-         <li class="mx-2 nav-item">
-           <a class="nav-link text-light" href="#list-item-1">O NAS</a>
+         <!--<li class="mx-2 nav-item ">
+    <a class="nav-link text-light" href="#list-item-1">O NAS</a>
+  </li>-->
+         <li class="mx-2 nav-item" [routerLinkActive]="['link-active']">
+           <a class="nav-link text-light" [routerLink]="['/about-us']">O NAS</a>
          </li>
          <li *ngIf="isAdministratorPanelVisible()" class="mx-2 nav-item" [routerLinkActive]="['link-active']">
            <a class="nav-link text-light" [routerLink]="['/admin']">ADMIN </a>
