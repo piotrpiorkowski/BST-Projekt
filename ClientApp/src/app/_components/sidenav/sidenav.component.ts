@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
 import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,10 +13,14 @@ export class SidenavComponent implements OnInit {
   users: User[];
   searchValue: string;
 
-  constructor(public authService: AuthService, public userService: UserService) { }
+  constructor(public authService: AuthService, public userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data.subscribe(data => {
+      this.users = data['users'].result;
+    });
     this.getUsersSearch();
+    console.log(this.users)
   }
 
   getUsersSearch() {

@@ -53,6 +53,8 @@ import { SidememberListComponent } from './_components/sidemember-list/sidemembe
 import { SidenavComponent } from './_components/sidenav/sidenav.component';
 import { SearchfilterPipe } from './searchfilter.pipe';
 import { TrainingListComponent } from './_components/training-list/training-list.component';
+import { TrainingCardComponent } from './_components/training-card/training-card.component';
+import { TrainingEditComponent } from './_components/training-edit/training-edit.component';
 
 
 
@@ -90,7 +92,9 @@ export function tokenGetter() {
     SidememberListComponent,
     SidenavComponent,
     SearchfilterPipe,
-    TrainingListComponent
+    TrainingListComponent,
+    TrainingCardComponent,
+    TrainingEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -11,6 +11,7 @@ export class PlanerComponent implements OnInit {
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
+
   }
 
   //isItemForCoachVisible(): boolean {

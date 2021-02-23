@@ -1,10 +1,11 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform, OnInit } from '@angular/core';
 import { User } from './_models/user';
 
 @Pipe({
   name: 'searchfilter'
 })
 export class SearchfilterPipe implements PipeTransform {
+
 
   transform(users: User[], searchValue: string): User[] {
 

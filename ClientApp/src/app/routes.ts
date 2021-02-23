@@ -20,6 +20,7 @@ import { LoginComponent } from './_components/login/login.component';
 import { ListsResolver } from './_resolvers/lists.resolver';
 import { SidememberListComponent } from './_components/sidemember-list/sidemember-list.component';
 import { TrainingListComponent } from './_components/training-list/training-list.component';
+import { TrainingEditComponent } from './_components/training-edit/training-edit.component';
 
 
 export const appRoutes: Routes = [
@@ -29,7 +30,10 @@ export const appRoutes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children: [
-      { path: 'planer', component: PlanerComponent },
+      {
+        path: 'planer', component: PlanerComponent,
+        resolve: { users: MemberListResolver }
+      },
       {
         path: 'member/list', component: MemberListComponent,
         resolve: { users: MemberListResolver }
@@ -47,8 +51,11 @@ export const appRoutes: Routes = [
         resolve: { user: MemberEditResolver }, canDeactivate: [PreventUnsavedChanges]
       },
       { path: 'messages', component: MessagesComponent, resolve: { messages: MessagesResolver } },
+
       { path: 'admin', component: AdminPanelComponent, data: { roles: ['Admin', 'Moderator'] } },
       { path: 'training/list', component: TrainingListComponent, data: { roles: ['Coach'] } },
+      { path: 'training/edit', component: TrainingEditComponent, data: { roles: ['Coach'] } },
+
     ]
   },
   { path: 'mobility', component: MobilityComponent },

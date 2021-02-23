@@ -20,7 +20,7 @@ export class MemberListComponent implements OnInit {
   p: number = 1;
   collection: any[] = this.users;  
   
-
+  
 
   constructor(private userService: UserService, private alertify: AlertifyService,
     private route: ActivatedRoute) { }
@@ -28,7 +28,8 @@ export class MemberListComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.users = data['users'].result;     
+      this.users = data['users'].result;
     });
+    
   }
 }
