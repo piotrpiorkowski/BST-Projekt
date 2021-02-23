@@ -19,6 +19,7 @@ import { PlanerNotloggedComponent } from './_components/planer-notlogged/planer-
 import { LoginComponent } from './_components/login/login.component';
 import { ListsResolver } from './_resolvers/lists.resolver';
 import { SidememberListComponent } from './_components/sidemember-list/sidemember-list.component';
+import { TrainingListComponent } from './_components/training-list/training-list.component';
 
 
 export const appRoutes: Routes = [
@@ -47,6 +48,7 @@ export const appRoutes: Routes = [
       },
       { path: 'messages', component: MessagesComponent, resolve: { messages: MessagesResolver } },
       { path: 'admin', component: AdminPanelComponent, data: { roles: ['Admin', 'Moderator'] } },
+      { path: 'training/list', component: TrainingListComponent, data: { roles: ['Coach'] } },
     ]
   },
   { path: 'mobility', component: MobilityComponent },
