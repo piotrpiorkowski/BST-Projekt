@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Training } from '../../_models/training';
 import { ActivatedRoute } from '@angular/router';
+import { Plan } from '../../_models/plan';
+import { Training } from '../../_models/training';
 
 @Component({
   selector: 'app-training-list',
@@ -8,32 +9,32 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./training-list.component.css']
 })
 export class TrainingListComponent implements OnInit {
-  trainings: Training[];
+  plans: Plan[];
   name: string = "";
   photoUrl: string = "";
+  trainings: Training[]
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.trainings = [
+    this.plans = [
       {
         name: 'todo',
-        photoUrl: 'First'
+        photoUrl: 'first',
+        trainings: []
       }
     ]
   }
 
-  deleteTraining(id: number) {
-    this.trainings = this.trainings.filter((v, i) => i !== id);
+  deletePlan(id: number) {
+    this.plans = this.plans.filter((v, i) => i !== id);
   }
 
-  addTraining() {
-    this.trainings.push({
+  addPlan() {
+    this.plans.push({
       name: this.name,
-      photoUrl: this.photoUrl
+      photoUrl: this.photoUrl,
+      trainings: this.trainings
     });
-
-    this.name = "";
-    this.photoUrl = "";
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Training } from '../../_models/training';
+import { Plan } from '../../_models/plan';
 
 @Component({
   selector: 'app-training-card',
@@ -7,7 +7,7 @@ import { Training } from '../../_models/training';
   styleUrls: ['./training-card.component.css']
 })
 export class TrainingCardComponent implements OnInit {
-  @Input() training: Training;
+  @Input() plan: Plan;
   
 
   constructor() { }

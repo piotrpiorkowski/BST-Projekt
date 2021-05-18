@@ -1,4 +1,6 @@
+import { Exercise } from "./exercise";
+
 export interface Training {
-  name: string;
-  photoUrl: string;
+  day: string;
+  exercises: Exercise[];
 }
